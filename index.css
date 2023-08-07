@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.side_top{
+    background-color:gray;
+    height: 150px; 
+    width: 25%;
+    border-radius: 5px; 
+    margin: 2px;   
+}
+.side_mid{
+    background-color:rgb(88, 81, 81);
+    height: 509px; 
+    width: 25%;
+    border-radius: 5px;
+   margin: 2px;  
+}
+
+.body{
+    height: 300px;
+    background-color: bisque;
+    position: top;
+}
+
+.container_bottom{
+    height: 150px;
+    background-color: black;
+    top: 665px;
+    float: left;
+    width: 100%; 
+    position: absolute;
+}
+
