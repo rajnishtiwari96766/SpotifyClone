@@ -1,34 +1,65 @@
 *{
     margin: 0px;
     padding: 0px;
+    background-color: white;
 }
 .side_top{
-    background-color:gray;
+    background-color:rgb(39, 37, 37);
     height: 150px; 
     width: 25%;
     border-radius: 5px; 
-    margin: 2px;   
+    margin: 2px; 
+    position: fixed; 
+    font-size: 30px; 
 }
+
 .side_mid{
-    background-color:rgb(88, 81, 81);
-    height: 509px; 
+    background-color:rgb(39, 37, 37);
+    height: 445px; 
     width: 25%;
     border-radius: 5px;
    margin: 2px;  
+   top: 155px;
+   position: fixed;
 }
 
-.body{
-    height: 300px;
-    background-color: bisque;
-    position: top;
+.sideMidEle{
+    background-color: rgb(39, 37, 37);
+}
+
+.main{
+    display: flex;
+    background-color: rgb(39, 37, 37);
+    height: 596px;
+    width: 1070px;
+    margin-top: 2px;
+    margin-right: 2px;
+    margin-left: 364px;
+    border-radius: 5px;
 }
 
 .container_bottom{
     height: 150px;
-    background-color: black;
-    top: 665px;
+    background-color: rgb(17, 16, 16);
+    top: 605px;
     float: left;
     width: 100%; 
+    position: fixed;
+}
+.bottom_icons{
     position: absolute;
+    /* background-color: black; */
+    margin-top: 40px;
+    /* align-items: center; */
+    margin-left: 700px;
+    padding : 10px;
+}
+progress{width: 400px;
+    height: 10px;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    margin: 90px;
+    margin-left: 540px;
+    border-radius: 5px;
 }
 
