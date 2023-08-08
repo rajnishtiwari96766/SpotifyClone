@@ -23,7 +23,7 @@
    position: fixed;
 }
 
-.sideMidEle{
+.sideTopEle{
     background-color: rgb(39, 37, 37);
 }
 
@@ -36,6 +36,7 @@
     margin-right: 2px;
     margin-left: 364px;
     border-radius: 5px;
+    position: fixed;
 }
 
 .container_bottom{
