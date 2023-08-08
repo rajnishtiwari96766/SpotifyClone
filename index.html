@@ -1,42 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Spotify-Clone</title>
-    <link rel="stylesheet" href="index.css"/>
+    <link rel="stylesheet" href="index.css" />
+    <!-- <link rel="stylesheet" href="index.js"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
 </head>
+
 <body>
     <div class="container">
         <div class="side_top">
-            
-            
+
+
         </div>
         <div class="main">
             <div class="songs">
-                <audio src="/Users/rajnishvinaytiwari/Desktop/spotify_clone/songs/Main Nikla Gaddi Leke Gadar 2 320 Kbps.mp3"></audio>
-               
+                <audio id="audioPlayer"></audio>
+                <ul id="playlist">
+                    <li data-src="songs/Main Nikla Gaddi Leke Gadar 2 320 Kbps.mp3"> song-1</li>
+                    <li data-src="songs/Udd Jaa Kaale Kaava Gadar 2 320 Kbps.mp3"> song-2</li>
+                </ul>
             </div>
         </div>
         <div class="side_mid">
-          
+
         </div>
 
         <div class="container_bottom">
             <div class="bottom_icons">
-                <button><i class="fa-solid fa-backward-step fa-2xl"></i></button>
-                <button id="pauseButton"><i class="fa-solid fa-circle-pause fa-2xl"></i>  </button>
-                 <button><i class="fa-sharp fa-solid fa-forward-step fa-2xl"></i></button>
-                
+                <button id="prevButton"><i class="fa-solid fa-backward-step fa-2xl"></i></button>
+                <button id="pauseButton"><i class="fa-solid fa-circle-pause fa-2xl"></i> </button>
+                <button id="playButton"><i class="fa-solid fa-play fa-2xl"></i></button>
+                <button id="forwardButton"><i class="fa-sharp fa-solid fa-forward-step fa-2xl"></i></button>
             </div>
-            
-                <progress value="50" max="100"></progress>
-            
-         </div>
+            <progress id="progressBar" value="50" max="100"></progress>
+        </div>
     </div>
+    <script>
+        const audioPlayer = document.getElementById("audioPlayer");
+        const pauseButton = document.getElementById("pauseButton");
+        const playButton = document.getElementById("playButton");
+        const prevButton=document.getElementById("prevButton");
+        const forwardButton=document.getElementById("forwardButton");
+        const progressBar=document.getElementById("progressBar");
+        const playlist=document.getElementById("playlist").getElementsByTagName("li");
+
+        let currentSong=0;
+
+        function loadSong(index){
+            audioPlayer.src=playlist[index].getAttribute("data-src")
+            audioPlayer.load();
+        }
+
+        function playSong(){
+            audioPlayer.play();
+        }
+
+        function pauseSong(){
+            audioPlayer.pause();
+        }
+
+        function playNextSong(){
+            currentSong=(currentSong+1)%playlist.length;
+            loadSong(currentSong);
+            playSong();
+        }
+
+        function prevSong(){
+            currentSong=(currentSong-1 + playlist.length)%playlist.length;
+            loadSong(currentSong);
+            playSong();
+        }
+        loadSong(currentSong);
+
+        playButton.addEventListener("click",playSong);
+        pauseButton.addEventListener("click",pauseSong);
+        prevButton.addEventListener("click",prevSong);
+        forwardButton.addEventListener("click",playNextSong);
+
+        audioPlayer.addEventListener("timeupdate",()=>{
+            const currentTime=audioPlayer.currentTime;
+            const duration=audioPlayer.duration;
+            const progressPercent=(currentTime/duration)*100;
+            progressBar.value=progressPercent;
+        })
+
+        audioPlayer.addEventListener("ended",()=>{
+            playNextSong();
+        })
+    </script>
 </body>
+
 </html>
