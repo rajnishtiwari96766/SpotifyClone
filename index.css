@@ -63,4 +63,11 @@ progress{width: 400px;
     margin-left: 540px;
     border-radius: 5px;
 }
+.songs{
+    height: 40px;
+    margin: 200px;
+    width: 50%;
+    border-radius: 3px;
+    background-color: rgb(36, 99, 155);
+}
 
