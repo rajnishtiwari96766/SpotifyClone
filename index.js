@@ -49,3 +49,30 @@
         audioPlayer.addEventListener("ended",()=>{
             playNextSong();
         })
+
+        function togglePlayPause(isPlaying){
+            if(isPlaying){
+                playButton.classList.add("fa-pause");
+                playButton.classList.remove("fa-play");
+            }
+            else{
+                playButton.classList.add("fa-play");
+                playButton.classList.remove("fa-pause");
+            }
+        }
+
+        playButton.addEventListener("click",()=>{
+            if(audioPlayer.paused){
+                audioPlayer.play();
+                togglePlayPause(true);
+            }
+            else{
+                audioPlayer.pause();
+                togglePlayPause(false)
+            }
+        })
+
+        pauseButton.addEventListener("click",()=>{
+            audioPlayer.pause()
+            togglePlayPause(false);
+        })
