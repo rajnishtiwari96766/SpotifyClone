@@ -1,3 +1,4 @@
+       document.addEventListener("DOMContentLoaded",()=>{
         const audioPlayer = document.getElementById("audioPlayer");
         const pauseButton = document.getElementById("pauseButton");
         const playButton = document.getElementById("playButton");
@@ -52,12 +53,12 @@
 
         function togglePlayPause(isPlaying){
             if(isPlaying){
-                playButton.classList.add("fa-pause");
-                playButton.classList.remove("fa-play");
+                audioPlayer.play();
+                togglePlayPause(true);
             }
             else{
-                playButton.classList.add("fa-play");
-                playButton.classList.remove("fa-pause");
+                audioPlayer.pause();
+                togglePlayPause(false);
             }
         }
 
@@ -65,10 +66,15 @@
             if(audioPlayer.paused){
                 audioPlayer.play();
                 togglePlayPause(true);
+                playButton.style.display="none";
+                pauseButton.style.display="inline-block"
             }
             else{
                 audioPlayer.pause();
                 togglePlayPause(false)
+
+                pauseButton.style.display="none";
+                playButton.style.display="inline-block"
             }
         })
 
@@ -76,3 +82,5 @@
             audioPlayer.pause()
             togglePlayPause(false);
         })
+       })
+       
