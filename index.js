@@ -25,7 +25,8 @@ function pauseSong() {
 function playNextSong() {
     currentSong = (currentSong + 1) % playlist.length;
     loadSong(currentSong);
-    playSong();
+    // playSong();
+    currentSong.play();
 }
 
 function prevSong() {
@@ -35,21 +36,21 @@ function prevSong() {
 }
 loadSong(currentSong);
 
-playButton.addEventListener("click", playSong);
-pauseButton.addEventListener("click", pauseSong);
-prevButton.addEventListener("click", prevSong);
-forwardButton.addEventListener("click", playNextSong);
+// playButton.addEventListener("click", playSong);
+// pauseButton.addEventListener("click", pauseSong);
+// prevButton.addEventListener("click", prevSong);
+// forwardButton.addEventListener("click", playNextSong);
 
-audioPlayer.addEventListener("timeupdate", () => {
-    const currentTime = audioPlayer.currentTime;
-    const duration = audioPlayer.duration;
-    const progressPercent = (currentTime / duration) * 100;
-    progressBar.value = progressPercent;
-})
+// audioPlayer.addEventListener("timeupdate", () => {
+//     const currentTime = audioPlayer.currentTime;
+//     const duration = audioPlayer.duration;
+//     const progressPercent = (currentTime / duration) * 100;
+//     progressBar.value = progressPercent;
+// })
 
-audioPlayer.addEventListener("ended", () => {
-    playNextSong();
-})
+// audioPlayer.addEventListener("ended", () => {
+//     playNextSong();
+// })
 
 // const playPauseIcon = document.getElementById("playPauseIcon")
 // function togglePlayPause() {
@@ -76,18 +77,20 @@ audioPlayer.addEventListener("ended", () => {
 //     playPauseIcon.classList.add("fa-solid fa-play fa-2xl")
 // })
 
-const playsong=document.getElementById(playButton)
-function togglePlayPause(icons){
-    if(audioPlayer.paused || audioPlayer.currentTime<=0){
+const playsong = document.getElementById(playButton)
+function togglePlayPause(icon) {
+    if (audioPlayer.paused || audioPlayer.currentTime <= 0) {
         audioPlayer.play();
         console.log("playing")
-    }else{
+        playButton.innerHTML = '<i class="fa-solid fa-pause fa-2xl"></i>';
+    } else {
         audioPlayer.pause();
         console.log("paused");
+        playButton.innerHTML = '<i class="fa-solid fa-play fa-2xl"></i>';
     }
 }
 
-playButton.addEventListener("click",()=>{
-    togglePlayPause(playButton);
+playButton.addEventListener("click", () => {
+    togglePlayPause(playButton)
 })
 
