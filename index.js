@@ -28,8 +28,8 @@ function playNextSong() {
     console.log("nextSong")
     currentSong = (currentSong + 1) % playlist.length;
     loadSong(currentSong);
-    // playSong();
-    currentSong.play();
+    playSong();
+    // currentSong.play();
 }
 
 const songprev=document.getElementById(prevButton)
