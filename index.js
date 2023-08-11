@@ -13,6 +13,7 @@ function loadSong(index) {
     audioPlayer.src = playlist[index].getAttribute("data-src")
     audioPlayer.load();
 }
+loadSong(currentSong);
 
 function playSong() {
     audioPlayer.play();
@@ -22,75 +23,56 @@ function pauseSong() {
     audioPlayer.pause();
 }
 
+const songnext=document.getElementById(forwardButton)
 function playNextSong() {
+    console.log("nextSong")
     currentSong = (currentSong + 1) % playlist.length;
     loadSong(currentSong);
     // playSong();
     currentSong.play();
 }
 
+const songprev=document.getElementById(prevButton)
 function prevSong() {
+    console.log("prevSong")
     currentSong = (currentSong - 1 + playlist.length) % playlist.length;
     loadSong(currentSong);
     playSong();
 }
-loadSong(currentSong);
 
-// playButton.addEventListener("click", playSong);
-// pauseButton.addEventListener("click", pauseSong);
-// prevButton.addEventListener("click", prevSong);
-// forwardButton.addEventListener("click", playNextSong);
-
-// audioPlayer.addEventListener("timeupdate", () => {
-//     const currentTime = audioPlayer.currentTime;
-//     const duration = audioPlayer.duration;
-//     const progressPercent = (currentTime / duration) * 100;
-//     progressBar.value = progressPercent;
-// })
-
-// audioPlayer.addEventListener("ended", () => {
-//     playNextSong();
-// })
-
-// const playPauseIcon = document.getElementById("playPauseIcon")
-// function togglePlayPause() {
-//     if (audioPlayer.paused) {
-//         audioPlayer.play();
-//         playPauseIcon.classList.remove("fa-solid fa-play fa-2xl")
-//         playPauseIcon.classList.add("fa-solid fa-pause fa-2xl");
-//         console.log("playing")
-//     }
-//     else {
-//         audioPlayer.pause();
-//         playPauseIcon.classList.remove("fa-solid fa-pause fa-2xl")
-//         playPauseIcon.classList.add("fa-solid fa-play fa-2xl");
-//         console.log("paused")
-
-//     }
-// }
-
-// playButton.addEventListener("click", togglePlayPause);
-
-// pauseButton.addEventListener("click", () => {
-//     audioPlayer.pause();
-//     playPauseIcon.classList.remove("fa-solid fa-pause fa-2xl")
-//     playPauseIcon.classList.add("fa-solid fa-play fa-2xl")
-// })
-
+//function created
 const playsong = document.getElementById(playButton)
-function togglePlayPause(icon) {
+function togglePlayPause() {
     if (audioPlayer.paused || audioPlayer.currentTime <= 0) {
         audioPlayer.play();
-        console.log("playing")
+        // console.log("playing")
         playButton.innerHTML = '<i class="fa-solid fa-pause fa-2xl"></i>';
     } else {
         audioPlayer.pause();
-        console.log("paused");
+        // console.log("paused");
         playButton.innerHTML = '<i class="fa-solid fa-play fa-2xl"></i>';
     }
 }
 
+//function called
 playButton.addEventListener("click", () => {
     togglePlayPause(playButton)
 })
 
+prevButton.addEventListener("click", ()=>{
+    prevSong(prevButton);
+});
+forwardButton.addEventListener("click", ()=>{
+    playNextSong(forwardButton)
+});
+
+audioPlayer.addEventListener("timeupdate", () => {
+    const currentTime = audioPlayer.currentTime;
+    const duration = audioPlayer.duration;
+    const progressPercent = (currentTime / duration) * 100;
+    progressBar.value = progressPercent;
+})
+
+audioPlayer.addEventListener("ended", () => {
+    playNextSong();
+})
