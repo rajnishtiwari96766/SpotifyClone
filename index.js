@@ -54,6 +54,10 @@ function togglePlayPause() {
     }
 }
 
+function timeLine(){
+    
+}
+
 //function called
 playButton.addEventListener("click", () => {
     togglePlayPause(playButton)
@@ -61,9 +65,11 @@ playButton.addEventListener("click", () => {
 
 prevButton.addEventListener("click", ()=>{
     prevSong(prevButton);
+    togglePlayPause(playButton);
 });
 forwardButton.addEventListener("click", ()=>{
     playNextSong(forwardButton)
+    togglePlayPause(playButton)
 });
 
 audioPlayer.addEventListener("timeupdate", () => {
