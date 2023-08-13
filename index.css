@@ -1,69 +1,17 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    background-color: white;
-}
-.side_top{
-    background-color:rgb(39, 37, 37);
-    height: 150px; 
-    width: 25%;
-    border-radius: 5px; 
-    margin: 2px; 
-    position: fixed; 
-    font-size: 30px; 
-}
-
-.side_mid{
-    background-color:rgb(39, 37, 37);
-    height: 445px; 
-    width: 25%;
-    border-radius: 5px;
-   margin: 2px;  
-   top: 155px;
-   position: fixed;
-}
-
-.sideTopEle{
-    background-color: rgb(39, 37, 37);
-}
-
-.main{
-    display: flex;
-    background-color: rgb(39, 37, 37);
-    height: 596px;
-    width: 1070px;
-    margin-top: 2px;
-    margin-right: 2px;
-    margin-left: 364px;
-    border-radius: 5px;
-    position: fixed;
-}
-
-.container_bottom{
-    height: 150px;
-    background-color: rgb(17, 16, 16);
-    top: 605px;
-    float: left;
-    width: 100%; 
-    position: fixed;
-}
-.bottom_icons{
-    position: absolute;
-    /* background-color: black; */
-    margin-top: 40px;
-    /* align-items: center; */
-    margin-left: 700px;
-    padding : 10px;
-}
-
-.songs{
-    height: 40px;
-    margin: 200px;
+#Progress_Status {
     width: 50%;
-    border-radius: 3px;
-    background-color: rgb(36, 99, 155);
-}
+    background-color: #ddd;
+    border-radius: 2px;
+    margin-top: 10px;
 
-.startTime .endTime{
-    color: white;
-}
+
+  }
+    
+  #myprogressBar {
+    width: 10%;
+    height: 10px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 32px;
+    color: black;
+  }

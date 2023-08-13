@@ -54,8 +54,18 @@ function togglePlayPause() {
     }
 }
 
-function timeLine(){
-    
+const progress_Bar=document.getElementById(myprogressBar)
+function progressPercent(){
+    const completion=(currentTime/duration)*100;
+    let widthPercent;
+
+    if(completion>100){
+        completion=0;
+        widthPercent=completion;
+    }else{
+        completion++;
+        widthPercent=completion;
+    }
 }
 
 //function called
@@ -81,4 +91,8 @@ audioPlayer.addEventListener("timeupdate", () => {
 
 audioPlayer.addEventListener("ended", () => {
     playNextSong();
+})
+
+myprogressBar.addEventListener("click",()=>{
+     progressPercent(myprogressBar)
 })
