@@ -1,17 +1,10 @@
-#Progress_Status {
+#myProgress {
     width: 50%;
-    background-color: #ddd;
-    border-radius: 2px;
-    margin-top: 10px;
-
-
+    background-color: rgb(200, 198, 198);
   }
-    
-  #myprogressBar {
-    width: 10%;
+  
+  #progressBar {
+    width: 0%;
     height: 10px;
-    background-color: #4CAF50;
-    text-align: center;
-    line-height: 32px;
-    color: black;
+    background-color: green;
   }

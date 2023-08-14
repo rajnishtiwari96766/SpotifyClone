@@ -54,25 +54,10 @@ function togglePlayPause() {
     }
 }
 
-const progress_Bar=document.getElementById(myprogressBar)
-function progressPercent(){
-    const completion=(currentTime/duration)*100;
-    let widthPercent;
-
-    if(completion>100){
-        completion=0;
-        widthPercent=completion;
-    }else{
-        completion++;
-        widthPercent=completion;
-    }
-}
-
 //function called
 playButton.addEventListener("click", () => {
     togglePlayPause(playButton)
 })
-
 prevButton.addEventListener("click", ()=>{
     prevSong(prevButton);
     togglePlayPause(playButton);
@@ -82,17 +67,15 @@ forwardButton.addEventListener("click", ()=>{
     togglePlayPause(playButton)
 });
 
-audioPlayer.addEventListener("timeupdate", () => {
-    const currentTime = audioPlayer.currentTime;
-    const duration = audioPlayer.duration;
-    const progressPercent = (currentTime / duration) * 100;
-    progressBar.value = progressPercent;
-})
-
 audioPlayer.addEventListener("ended", () => {
     playNextSong();
 })
 
-myprogressBar.addEventListener("click",()=>{
-     progressPercent(myprogressBar)
+audioPlayer.addEventListener("timeupdate",()=>{
+    const currentTime=audioPlayer.currentTime;
+    const duration=audioPlayer.duration;
+    const progressPercent=(currentTime/duration)*100;
+    progressBar.value=progressPercent;
 })
+
+
