@@ -75,7 +75,10 @@ audioPlayer.addEventListener("timeupdate",()=>{
     const currentTime=audioPlayer.currentTime;
     const duration=audioPlayer.duration;
     const progressPercent=(currentTime/duration)*100;
-    progressBar.value=progressPercent;
+    progress.value=progressPercent;
+    console.log(progressPercent.getTime())
 })
+
+
 
 
