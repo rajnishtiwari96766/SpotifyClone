@@ -76,6 +76,12 @@ function audio_duration(){
 
 }
 
+function toggleMuteVol(){
+    if(audioPlayer.volume==0){
+        
+    }
+}
+
 //function called
 playButton.addEventListener("click", () => {
     togglePlayPause()
