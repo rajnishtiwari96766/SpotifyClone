@@ -4,9 +4,11 @@ const pauseButton = document.getElementById("pauseButton");
 const playButton = document.getElementById("playButton");
 const prevButton = document.getElementById("prevButton");
 const forwardButton = document.getElementById("forwardButton");
-const progressBar = document.getElementById("progressBar");
+const progressBar = document.getElementById("progress");
 const playlist = document.getElementById("playlist").getElementsByTagName("li");
-
+const startTime=document.getElementById("startTime")
+const endTime=document.getElementById("endTime")
+const volumeSlider=document.getElementById("myRange")
 let currentSong = 0;
 
 function loadSong(index) {
@@ -54,9 +56,29 @@ function togglePlayPause() {
     }
 }
 
+const start=document.getElementById(startTime)
+function begin() {
+    if (!audioPlayer.paused) {
+        const currentTime = audioPlayer.currentTime;
+        const minutes = Math.floor(currentTime / 60);
+        const seconds = Math.floor(currentTime % 60);
+        startTime.innerHTML = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }  
+}
+
+const end=document.getElementById(endTime)
+function audio_duration(){
+    // endTime.innerHTML=audioPlayer.duration
+    const j=audioPlayer.duration;
+    const minutes=Math.floor(j/60);
+    const seconds=Math.floor(j%60);
+    endTime.innerHTML=`${minutes}:${seconds}`
+
+}
+
 //function called
 playButton.addEventListener("click", () => {
-    togglePlayPause(playButton)
+    togglePlayPause()
 })
 prevButton.addEventListener("click", ()=>{
     prevSong(prevButton);
@@ -72,17 +94,18 @@ audioPlayer.addEventListener("ended", () => {
 })
 
 audioPlayer.addEventListener("timeupdate",()=>{
+    begin()
+    audio_duration()
     const currentTime=audioPlayer.currentTime;
     const duration=audioPlayer.duration;
     const progressPercent=(currentTime/duration)*100;
-    progress.value=progressPercent;
-    console.log(progressPercent.getTime())
+    progressBar.value=progressPercent;
 })
 
-const start=document.getElementById(startTime)
-function begin(){
-    
-}
+myRange.addEventListener("input",()=>{
+    audioPlayer.volume=myRange.value/100
+})
+
 
 
 
