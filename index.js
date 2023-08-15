@@ -79,6 +79,10 @@ audioPlayer.addEventListener("timeupdate",()=>{
     console.log(progressPercent.getTime())
 })
 
+const start=document.getElementById(startTime)
+function begin(){
+    
+}
 
 
 
