@@ -96,11 +96,24 @@ function audioControl(){
 
 const songsInList=document.querySelectorAll("#playlist li")
 
-const handleSongClick=(event)=>{
-    const songClicked=event.target;
-    console.log("song clicked")
-}
+// const handleSongClick=(event)=>{
+//     const songClicked=event.target;
+//     console.log("song clicked")
+//     // playSong()
+//     audioPlayer.play
+    
+// }
 
+function handleSongClick(){
+    console.log("song clicked")
+   if(audioPlayer.paused){
+    playSong()
+    togglePlayPause()
+   }else{
+    // pauseSong()
+    togglePlayPause()
+   }
+}
 //function called
 playButton.addEventListener("click", () => {
     togglePlayPause()
@@ -136,7 +149,7 @@ volumeIcon.addEventListener("click",()=>{
 })
 
 songsInList.forEach((items)=>{
-    
+    items.addEventListener('click',handleSongClick)
 })
 
 
