@@ -17,7 +17,7 @@
         <div class="main">
             <div class="songs">
                 <audio id="audioPlayer"></audio>
-                <ul id="playlist">
+                <ul id="playlist" class="songList">
                     <li data-src="songs/Main Nikla Gaddi Leke Gadar 2 320 Kbps.mp3"> song-1</li>
                     <li data-src="songs/Udd Jaa Kaale Kaava Gadar 2 320 Kbps.mp3"> song-2</li>
                     <li data-src="songs/What Jhumka - Rocky Aur Rani Kii Prem Kahaani 320 Kbps.mp3">song-3</li>
@@ -43,7 +43,7 @@
             <div id="endTime"></div>
 
             <div id="volumeButton">
-                <i class="fa-solid fa-volume-high fa-2xl"></i>
+                <i class="fa-solid fa-volume-high fa-2xl" id="volumeIcon"></i>
                 <input type="range" min="0" steps="1" max="100" value="50" class="slider" id="myRange">
             </div>
         </div>

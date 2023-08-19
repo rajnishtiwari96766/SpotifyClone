@@ -9,6 +9,8 @@ const playlist = document.getElementById("playlist").getElementsByTagName("li");
 const startTime=document.getElementById("startTime")
 const endTime=document.getElementById("endTime")
 const volumeSlider=document.getElementById("myRange")
+const volumeIcon=document.getElementById("volumeIcon")
+
 let currentSong = 0;
 
 function loadSong(index) {
@@ -76,12 +78,23 @@ function audio_duration(){
 
 }
 
-function toggleMuteVol(){
-    if(audioPlayer.volume==0){
-        
+let currentVolume_value=audioPlayer.volume;
+function audioControl(){
+    if(audioPlayer.volume!==0){
+        audioPlayer.volume=0;
+        myRange.value=0;
+        volumeIcon.classList.add("fa-volume-mute")
+        volumeIcon.classList.remove("fa-volume-high")
+    }else {
+        audioPlayer.volume=currentVolume_value
+        myRange.value=currentVolume_value.volume;
+
+        volumeIcon.classList.add("fa-volume-high")
+        volumeIcon.classList.remove("fa-volume-mute")
     }
 }
 
+const song_selected=document.querySelector('.songList li')
 //function called
 playButton.addEventListener("click", () => {
     togglePlayPause()
@@ -110,6 +123,10 @@ audioPlayer.addEventListener("timeupdate",()=>{
 
 myRange.addEventListener("input",()=>{
     audioPlayer.volume=myRange.value/100
+})
+
+volumeIcon.addEventListener("click",()=>{
+    audioControl()
 })
 
 
