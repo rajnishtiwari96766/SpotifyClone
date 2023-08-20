@@ -95,25 +95,32 @@ function audioControl(){
 }
 
 const songsInList=document.querySelectorAll("#playlist li")
+const handleSongClick=(event)=>{
+    // const songClicked=event.target;
+    // console.log("song clicked")
+    // playSong()
+    // audioPlayer.play
+    console.log("song clicked")
+    if(!audioPlayer.paused){
+     pauseSong()
+     togglePlayPause()
+    }else{
+     playSong()
+     togglePlayPause()
+    }   
+}
 
-// const handleSongClick=(event)=>{
-//     const songClicked=event.target;
+// function handleSongClick(){
 //     console.log("song clicked")
-//     // playSong()
-//     audioPlayer.play
-    
+//    if(audioPlayer.paused){
+//     playSong()
+//     togglePlayPause()
+//    }else{
+//     // pauseSong()
+//     togglePlayPause()
+//    }
 // }
 
-function handleSongClick(){
-    console.log("song clicked")
-   if(audioPlayer.paused){
-    playSong()
-    togglePlayPause()
-   }else{
-    // pauseSong()
-    togglePlayPause()
-   }
-}
 //function called
 playButton.addEventListener("click", () => {
     togglePlayPause()
