@@ -54,7 +54,7 @@ function togglePlayPause() {
     } else {
         audioPlayer.pause();
         // console.log("paused");
-        playButton.innerHTML = '<i class="fa-solid fa-play fa-2xl"></i>';
+        playButton.innerHTML = '<i class="fa-solid fa-circle-play fa-2xl"></i>';
     }
 }
 
