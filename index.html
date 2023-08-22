@@ -18,10 +18,10 @@
             <div class="songs">
                 <audio id="audioPlayer"></audio>
                 <ul id="playlist" class="songList">
-                    <li data-src="songs/Main Nikla Gaddi Leke Gadar 2 320 Kbps.mp3"> song-1</li>
-                    <li data-src="songs/Udd Jaa Kaale Kaava Gadar 2 320 Kbps.mp3"> song-2</li>
-                    <li data-src="songs/What Jhumka - Rocky Aur Rani Kii Prem Kahaani 320 Kbps.mp3">song-3</li>
-                    <li data-src="songs/Bulleya - Sultan 320 Kbps.mp3">song-4</li>
+                    <li id="song-1" data-src="songs/Main Nikla Gaddi Leke Gadar 2 320 Kbps.mp3"> song-1</li>
+                    <li id="song-2" data-src="songs/Udd Jaa Kaale Kaava Gadar 2 320 Kbps.mp3"> song-2</li>
+                    <li id="song-3" data-src="songs/What Jhumka - Rocky Aur Rani Kii Prem Kahaani 320 Kbps.mp3">song-3</li>
+                    <li id="song-4" data-src="songs/Bulleya - Sultan 320 Kbps.mp3">song-4</li>
                 </ul>
             </div>
         </div>
@@ -30,7 +30,6 @@
         <div class="container_bottom">
             <div class="bottom_icons">
                 <button id="prevButton"><i class="fa-solid fa-backward-step fa-2xl"></i></button>
-                <!-- <button id="pauseButton"><i class="fa-solid fa-pause fa-2xl"></i> </button> -->
                 <button id="playButton"><i class="fa-solid fa-circle-play fa-2xl"></i></button>
                 <button id="forwardButton"><i class="fa-sharp fa-solid fa-forward-step fa-2xl"></i></button>
             </div>
@@ -38,9 +37,8 @@
 
             <div class="progress">
                 <div id="startTime">0:00</div>
-                <progress id="progress" value="0" max="100"></progress>
-                <!-- <input type="range" min="1" max="100" value="0" class="slider" id="progress"> -->
-    
+                <progress id="progress" value="0" max="100"></progress>  
+                <!-- <input type="range" min="0" steps="1" max="100" value="0" class="slider" id="progress"> -->
                 <div id="endTime">0:00</div>
             </div>
 
