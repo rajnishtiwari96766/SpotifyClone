@@ -68,14 +68,15 @@ function begin() {
     }
 }
 
-const end = document.getElementById(endTime)
-function audio_duration() {
-    // endTime.innerHTML=audioPlayer.duration
-    const j = audioPlayer.duration;
-    const minutes = Math.floor(j / 60);
-    const seconds = Math.floor(j % 60);
-    endTime.innerHTML = `${minutes}:${seconds}`
-
+function audio_duration(){
+    const duration=audioPlayer.duration;
+    if(!isNaN(duration) && isFinite(duration)){
+        const minutes=Math.floor(duration/60);
+        const seconds=Math.floor(duration%60);
+        endTime.innerHTML=`${minutes}:${seconds <10 ? '0':''}${seconds}`;
+    }else{
+        endTime.innerHTML='00:00'
+    }
 }
 
 let currentVolume_value = audioPlayer.volume;
