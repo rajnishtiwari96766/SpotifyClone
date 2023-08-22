@@ -155,6 +155,3 @@ progressBar.addEventListener('click',(event)=>{
     const clickedPos=(event.offsetX/progressBar.offsetWidth)*audioPlayer.duration;
     audioPlayer.currentTime=clickedPos;
 })
-
-
-
