@@ -112,10 +112,6 @@ const handleSongClick = (event) => {
     }
 };
 
-function progressClicked(){
-    
-}
-
 //function called
 playButton.addEventListener("click", () => {
     togglePlayPause()
@@ -154,6 +150,10 @@ songsInList.forEach((items) => {
     items.addEventListener('click', handleSongClick)
 })
 
+progressBar.addEventListener('click',(event)=>{
+    const clickedPos=(event.offsetX/progressBar.offsetWidth)*audioPlayer.duration;
+    audioPlayer.currentTime=clickedPos;
+})
 
 
 
