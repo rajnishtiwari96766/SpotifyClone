@@ -112,6 +112,9 @@ const handleSongClick = (event) => {
     }
 };
 
+function progressClicked(){
+    
+}
 
 //function called
 playButton.addEventListener("click", () => {
