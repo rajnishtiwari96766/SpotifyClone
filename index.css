@@ -17,6 +17,10 @@
 
 .progress{
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;  
+}
+
+#volumeButton{
+    margin: 10px;
+    margin-top: 20px;
 }
