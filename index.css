@@ -1,26 +1,8 @@
-*{
-    padding: 0px;
-    margin: 0px;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.container_bottom{
-    background-color: rgb(131, 126, 126);
-    margin-top: 501px;
-}
-
-.bottom_icons{
-    padding-top: 20px;
-    /* margin-left: 690px; */
-    display: flex;
-    justify-content: center;
-}
-
-.progress{
-    display: flex;
-    justify-content: center;  
-}
-
-#volumeButton{
-    margin: 10px;
-    margin-top: 20px;
-}
+/* .container_bottom{
+    height: 25%;
+    background-color: aqua;
+} */
